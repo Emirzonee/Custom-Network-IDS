@@ -1,20 +1,25 @@
-from src.sniffer import NetworkSniffer
 from src.logger import setup_logger
+from src.sniffer import NetworkSniffer
+
 
 def main() -> None:
-    # Ana sistem loglayıcısını başlat
+    """
+    Entry point for the IDS engine.
+
+    Initializes the sniffer and starts packet capture. The interface is set
+    to None so Scapy automatically selects the active network adapter.
+    Run with administrator / root privileges — raw packet capture requires it.
+    """
     logger = setup_logger("IDS_MAIN")
-    logger.info("Custom Network IDS/IPS Sistemi Başlatılıyor...")
-    
-    # Sniffer nesnesini oluştur ve başlat
-    # Arayüzü None bırakıyoruz ki Scapy aktif Wi-Fi veya Ethernet'i otomatik bulsun
-    ids_sniffer = NetworkSniffer(interface=None)
-    
+    logger.info("Custom Network IDS/IPS starting...")
+
+    sniffer = NetworkSniffer(interface=None)
+
     try:
-        # Şimdilik test amaçlı sonsuza kadar (0) dinle
-        ids_sniffer.start(packet_count=0)
+        sniffer.start(packet_count=0)
     except Exception as e:
-        logger.critical(f"Sistem çökmesi: {e}")
+        logger.critical(f"System crash: {e}")
+
 
 if __name__ == "__main__":
     main()

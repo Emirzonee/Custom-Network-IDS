@@ -1,5 +1,5 @@
 network:
-  interface: null # null ise otomatik seçer
+  interface: null  # null = auto-select active adapter
   time_window: 10.0
   syn_threshold: 20
 
