@@ -1,0 +1,14 @@
+# Python önbellek dosyaları
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Sanal Ortam (Virtual Environment)
+.venv/
+venv/
+env/
+
+# Sistem ve Log Dosyaları
+logs/
+*.log
+.DS_Store
