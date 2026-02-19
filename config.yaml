@@ -1,0 +1,12 @@
+network:
+  interface: null # null ise otomatik seçer
+  time_window: 10.0
+  syn_threshold: 20
+
+logging:
+  level: "DEBUG"
+  log_to_file: true
+
+database:
+  enabled: true
+  path: "logs/attacks.db"
